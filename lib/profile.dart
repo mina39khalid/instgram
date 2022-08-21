@@ -206,7 +206,7 @@ class _profileState extends State<profile> {
           items: [
             /// Home
             DotNavigationBarItem(
-              icon: Icon(Icons.home,color: Colors.black,),
+              icon: Icon(Icons.home_filled,color: Colors.black,),
               selectedColor: Color(0xff73544C),
             ),
             /// Home
