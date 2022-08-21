@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'explore.dart';
 import 'instagram.dart';
-import 'pro.dart';
+
 import 'profile.dart';
 
 void main() {
