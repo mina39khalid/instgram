@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 class profile extends StatefulWidget {
   const profile({Key? key}) : super(key: key);
 
@@ -7,6 +8,13 @@ class profile extends StatefulWidget {
 }
 
 class _profileState extends State<profile> {
+  var _selectedTab = _SelectedTab.home;
+
+  void _handleIndexChanged(int i) {
+    setState(() {
+      _selectedTab = _SelectedTab.values[i];
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +28,7 @@ class _profileState extends State<profile> {
                 children: [
                   Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+
                       Icon(Icons.arrow_back,color: Colors.white,),
                       Icon(Icons.more_horiz,color: Colors.white,), ],
                   ),
@@ -184,6 +193,48 @@ class _profileState extends State<profile> {
 
                 ],
               ))),
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.only(bottom: 10),
+
+        child: DotNavigationBar(
+
+          currentIndex: _SelectedTab.values.indexOf(_selectedTab),
+          dotIndicatorColor: Colors.white,
+          unselectedItemColor: Colors.grey[300],
+          // enableFloatingNavBar: false,
+          onTap: _handleIndexChanged,
+          items: [
+            /// Home
+            DotNavigationBarItem(
+              icon: Icon(Icons.home,color: Colors.black,),
+              selectedColor: Color(0xff73544C),
+            ),
+            /// Home
+            DotNavigationBarItem(
+              icon: Icon(Icons.search,color: Colors.black,),
+              selectedColor: Color(0xff73544C),
+            ),
+
+            /// Likes
+            DotNavigationBarItem(
+              icon: Icon(Icons.send_time_extension_outlined,color: Colors.black,),
+              selectedColor: Color(0xff73544C),
+            ),
+
+            /// Search
+            DotNavigationBarItem(
+              icon: Icon(Icons.favorite_outline_sharp,color: Colors.black,),
+              selectedColor: Color(0xff73544C),
+            ),
+
+            /// Profile
+            DotNavigationBarItem(
+              icon: Icon(Icons.person,color: Colors.black,),
+              selectedColor: Color(0xff73544C),
+            ),
+          ],
+        ),
+      ),
     );
   }
   Container Followers()
@@ -197,3 +248,4 @@ class _profileState extends State<profile> {
     ),
   );}
 }
+enum _SelectedTab { home,search ,explor ,favorite, person }

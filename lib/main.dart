@@ -6,7 +6,7 @@ import 'pro.dart';
 import 'profile.dart';
 
 void main() {
-  runApp(MaterialApp(home: instgram(),debugShowCheckedModeBanner: false,));
+  runApp(MaterialApp(home: profile(),debugShowCheckedModeBanner: false,));
 }
 
 class MyApp extends StatelessWidget {
